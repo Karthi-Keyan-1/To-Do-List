@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header h1{
+    background-color: aquamarine;
+    padding: 15px;
+}
+
+#add{
+    border-radius: 100%;
+    border: none;
+    background-color: aquamarine;
+    position: fixed;
+    font-size: 40px;
+    padding: 18px;
+    bottom: 10%;
+    right: 5%;
+}
+
+.overlay{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    position: absolute;
+    opacity: 0.8;
+    display: none;
+}
+
+.popup{
+    background-color: aquamarine;
+    z-index: 2;
+    position: absolute;
+    width: 20%;
+    border-radius: 10px;
+    left: 35%;
+    top: 30%;
+    padding-left: 40px;
+    padding-right: 60px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: none;
+}
+
+.popup input{
+    background: transparent;
+    width: 100%;
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    border: solid 2px;
+}
+
+.popup textarea{
+    background: transparent;
+    width: 100%;
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+    border: solid 2px;
+}
+
+.popup textarea::placeholder{
+    color: black;
+}
+
+.popup input:focus{
+    outline: none;
+}
+
+.popup textarea:focus{
+    outline: none;
+}
+
+.popup button{
+    background-color: black;
+    color: aquamarine;
+    border-radius: 5px;
+    font-size: 20px;
+    border: none;
+    margin-top: 15px;
+    margin-left: 60px;
+    padding: 7px 10px;
+}
+
+.insider{
+    background-color: black;
+    border: none;
+    border-radius: 15px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    padding: 20px;
+    width: 15%;
+}
+
+.insider h1{
+    color: aquamarine;
+}
+
+.insider p{
+    color: white;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.insider button{
+    background-color: aquamarine;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px;
+    margin-top: 20px;
+    margin-left: 85px;
+}
+
+@media screen and (max-width:400px) {
+    .header h1{
+        text-align: center;
+    }
+
+    .insider{
+        width: 80%;
+        display: block;
+    }
+
+    .insider button{
+        margin-left: 130px;
+    }
+
+    #add{
+        bottom: 5%;
+        font-size: 30px;
+    }
+
+    .popup{
+        width: 60%;
+        left: 12%;
+        padding-left: 15px;
+        padding-right: 40px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .popup input{
+        margin-top: 10px;
+    }
+
+    .popup button{
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+}
