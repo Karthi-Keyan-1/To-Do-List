@@ -56,6 +56,26 @@ app.get("/tasks",async(req,res)=>{
 
 })
 
+app.put("/tasks/:id",async(req,res)=>{
+    try{
+        const task = await Task.findByIdAndUpdate(req.params.id,{
+            date:req.body.date,
+            area:req.body.area
+        },{
+            returnDocument:"after"
+        })
+        res.json(task)
+    }
+    catch(error){
+
+        res.status(500).json({
+            message:error.message
+        })
+
+    }
+
+})
+
 app.post("/tasks",async(req,res)=>{
 
     try{

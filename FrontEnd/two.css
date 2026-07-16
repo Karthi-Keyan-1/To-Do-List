@@ -113,9 +113,13 @@
     border: none;
     border-radius: 5px;
     font-size: 15px;
-    padding: 5px;
-    margin-top: 20px;
-    margin-left: 85px;
+    padding: 7px;
+    margin-top: 25px;
+}
+
+.flex{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 @media screen and (max-width:400px) {
@@ -128,10 +132,10 @@
         display: block;
     }
 
-    .insider button{
-        margin-left: 130px;
-    }
-
+   .flex{
+    display: flex;
+    justify-content: space-evenly;
+}
     #add{
         bottom: 5%;
         font-size: 30px;

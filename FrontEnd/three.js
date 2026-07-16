@@ -9,6 +9,7 @@ const popup = document.querySelector(".popup")
 const container = document.querySelector(".container")
 
 var dumps = []
+var editer = null
 
 function show()
 {
@@ -18,7 +19,10 @@ function show()
         box.className = "insider"
         box.innerHTML = `<h1>${item.date}</h1>
         <p>${item.area}</p>
-        <button onclick="dump(${index})">Delete</button`
+        <div class="flex">
+        <button onclick="update(${index})">Edit</button>
+        <button onclick="dump(${index})">Delete</button
+        </div>`
         container.append(box)
     })
 }
@@ -56,7 +60,22 @@ add.addEventListener("click",async function(event) {
         alert("PLEASE FILL ALL THE FIELDS")
         return
     }
-    await fetch("/tasks",{
+    if(editer)
+    {
+        await fetch(`/tasks/${editer}`,{
+            method:"PUT",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body:JSON.stringify({
+                date:value1.value,
+                area:value2.value
+            })
+        })
+        editer = null
+    }
+    else{
+        await fetch("/tasks",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -66,6 +85,7 @@ add.addEventListener("click",async function(event) {
             area:value2.value
         })
     })
+    }
     await load()
     overlay.style.display = "none"
     popup.style.display = "none"
@@ -78,4 +98,14 @@ async function dump(index) {
         method:"DELETE"
     })
     await load()
+}
+
+async function update(index){
+    editer = dumps[index]._id
+
+    value1.value = dumps[index].date
+    value2.value = dumps[index].area
+
+    overlay.style.display = "block"
+    popup.style.display = "block"
 }
